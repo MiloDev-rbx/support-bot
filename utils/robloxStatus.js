@@ -1,8 +1,7 @@
 const { EmbedBuilder } = require('discord.js');
 
-// Configuración
 const CANAL_ALERTAS_ID = '1532631042630881290';
-const ROL_NOTIFICACIONES_ID = '1545857316136685568'; // O '@everyone' o '' si no quieres ping
+const ROL_NOTIFICACIONES_ID = '1545857316136685568';
 
 const EMOJIS = {
     OPERATIONAL: '<:Operational:1545848750025482240>',
@@ -34,12 +33,20 @@ function obtenerIconoComponente(componentStatus) {
     return EMOJIS.OPERATIONAL;
 }
 
-// Lógica para los anuncios automáticos
 async function verificarEstadoRoblox(client) {
     try {
-        const respuesta = await fetch('https://status.roblox.com/api/v2/summary.json');
-        const data = await respuesta.json();
+        const respuesta = await fetch('https://status.roblox.com/api/v2/summary.json', {
+            headers: {
+                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) DiscordBot'
+            }
+        });
 
+        if (!respuesta.ok) {
+            console.warn(`[Roblox API] Respuesta no válida. Código de estado: ${respuesta.status}`);
+            return;
+        }
+
+        const data = await respuesta.json();
         const estadoActual = data.status.indicator;
         const descripcion = data.status.description;
 
@@ -82,14 +89,21 @@ async function verificarEstadoRoblox(client) {
     }
 }
 
-// Lógica para responder al comando /status
 async function manejarComandoStatus(interaction) {
     await interaction.deferReply();
 
     try {
-        const respuesta = await fetch('https://status.roblox.com/api/v2/summary.json');
-        const data = await respuesta.json();
+        const respuesta = await fetch('https://status.roblox.com/api/v2/summary.json', {
+            headers: {
+                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) DiscordBot'
+            }
+        });
 
+        if (!respuesta.ok) {
+            return await interaction.editReply('❌ No se pudo obtener respuesta de los servidores de Roblox.');
+        }
+
+        const data = await respuesta.json();
         const estadoActual = data.status.indicator;
         const descripcion = data.status.description;
         const { emoji, color } = obtenerIconoYColor(estadoActual);

@@ -50,8 +50,8 @@ for (const file of eventFiles) {
     }
 }
 
-// INICIO DEL MONITOREO AUTOMÁTICO DE ROBLOX
-client.once("ready", () => {
+// MONITOREO AUTOMÁTICO DE ROBLOX
+client.once("clientReady", () => {
     verificarEstadoRoblox(client);
     setInterval(() => verificarEstadoRoblox(client), 180000); // 3 minutos
 });
