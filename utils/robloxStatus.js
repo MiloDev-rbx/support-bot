@@ -3,14 +3,18 @@ const { EmbedBuilder } = require('discord.js');
 const CANAL_ALERTAS_ID = '1532631042630881290';
 const ROL_NOTIFICACIONES_ID = '1545857316136685568';
 
+// Ingresa tu API Key de ScraperAPI aquí
+const SCRAPER_API_KEY = 'TU_SCRAPER_API_KEY_AQUI';
+
 const EMOJIS = {
     OPERATIONAL: '<:Operational:1545848750025482240>',
     ISSUES: '<:IssuesDetected:1545848824050884779>',
     CRITICAL: '<:MajorOutage:1545848872012615820>'
 };
 
-// URL de la API mediante corsproxy.io para evadir bloqueos 401/503
-const API_URL = 'https://corsproxy.io/?' + encodeURIComponent('https://roblox.statuspage.io/api/v2/summary.json');
+// Petición a través de ScraperAPI para omitir Cloudflare (Bypasses 401, 403 y 503)
+const TARGET_URL = encodeURIComponent('https://roblox.statuspage.io/api/v2/summary.json');
+const API_URL = `http://api.scraperapi.com?api_key=${SCRAPER_API_KEY}&url=${TARGET_URL}`;
 
 let ultimoEstado = 'none';
 
@@ -38,15 +42,10 @@ function obtenerIconoComponente(componentStatus) {
 
 async function realizarPeticionAPI() {
     const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), 10000); // Timeout de 10 segundos
+    const timeout = setTimeout(() => controller.abort(), 15000);
 
     try {
-        const respuesta = await fetch(API_URL, {
-            signal: controller.signal,
-            headers: {
-                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
-            }
-        });
+        const respuesta = await fetch(API_URL, { signal: controller.signal });
         return respuesta;
     } finally {
         clearTimeout(timeout);
