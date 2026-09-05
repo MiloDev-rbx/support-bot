@@ -1,4 +1,3 @@
-const { verificarEstadoRoblox } = require('./utils/robloxStatus.js');
 require("dotenv").config();
 
 const fs = require("fs");
@@ -50,11 +49,8 @@ for (const file of eventFiles) {
     }
 }
 
-// MONITOREO AUTOMÁTICO DE ROBLOX
 client.once("ready", () => {
     console.log(`¡Bot conectado como ${client.user.tag}!`);
-    verificarEstadoRoblox(client);
-    setInterval(() => verificarEstadoRoblox(client), 180000); // 3 minutos
 });
 
 if (!process.env.TOKEN) {
