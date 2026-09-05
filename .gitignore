@@ -1,0 +1,8 @@
+# Variables de entorno (Token del bot y claves privadas)
+.env
+
+# Modulos de Node.js
+node_modules/
+
+# Archivos de registro / logs
+*.log

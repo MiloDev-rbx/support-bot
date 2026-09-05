@@ -1,0 +1,546 @@
+{
+    "version": 1,
+    "users": {
+        "1028491975181213738": {
+            "points": 10,
+            "shifts": 6,
+            "history": [
+                {
+                    "action": "add",
+                    "points": 67,
+                    "previousPoints": 0,
+                    "newPoints": 67,
+                    "reason": "Sin motivo",
+                    "eventType": null,
+                    "registeredBy": null,
+                    "adminId": "1028491975181213738",
+                    "createdAt": "2026-08-02T14:20:58.332Z"
+                },
+                {
+                    "action": "set",
+                    "points": 0,
+                    "previousPoints": 67,
+                    "newPoints": 0,
+                    "reason": "Sin motivo",
+                    "eventType": null,
+                    "registeredBy": null,
+                    "adminId": "1028491975181213738",
+                    "createdAt": "2026-08-02T14:21:12.001Z"
+                },
+                {
+                    "action": "reset",
+                    "points": 0,
+                    "previousPoints": 0,
+                    "newPoints": 0,
+                    "reason": "Sin motivo",
+                    "eventType": null,
+                    "registeredBy": null,
+                    "adminId": "1028491975181213738",
+                    "createdAt": "2026-08-02T14:29:40.713Z"
+                },
+                {
+                    "action": "add",
+                    "points": 0,
+                    "previousPoints": 0,
+                    "newPoints": 0,
+                    "reason": "Sin motivo",
+                    "eventType": null,
+                    "registeredBy": null,
+                    "adminId": "1028491975181213738",
+                    "createdAt": "2026-08-02T15:12:38.471Z"
+                },
+                {
+                    "action": "add",
+                    "points": 3,
+                    "previousPoints": 0,
+                    "newPoints": 3,
+                    "reason": "Registro de evento",
+                    "eventType": "T3",
+                    "registeredBy": "1028491975181213738",
+                    "adminId": null,
+                    "createdAt": "2026-08-02T15:30:45.675Z"
+                },
+                {
+                    "action": "reset",
+                    "points": 3,
+                    "previousPoints": 3,
+                    "newPoints": 0,
+                    "reason": "Sin motivo",
+                    "eventType": null,
+                    "registeredBy": null,
+                    "adminId": "1028491975181213738",
+                    "createdAt": "2026-08-02T15:31:26.285Z"
+                },
+                {
+                    "action": "add",
+                    "points": 3,
+                    "previousPoints": 0,
+                    "newPoints": 3,
+                    "reason": "Registro de evento",
+                    "eventType": "T3",
+                    "registeredBy": "1028491975181213738",
+                    "adminId": null,
+                    "createdAt": "2026-08-02T15:52:51.959Z"
+                },
+                {
+                    "action": "add",
+                    "points": 3,
+                    "previousPoints": 3,
+                    "newPoints": 6,
+                    "reason": "Registro de evento",
+                    "eventType": "T3",
+                    "registeredBy": "1028491975181213738",
+                    "adminId": null,
+                    "createdAt": "2026-08-02T15:57:07.915Z"
+                },
+                {
+                    "action": "set",
+                    "points": 0,
+                    "previousPoints": 6,
+                    "newPoints": 0,
+                    "reason": "Sin motivo",
+                    "eventType": null,
+                    "registeredBy": null,
+                    "adminId": "1028491975181213738",
+                    "createdAt": "2026-08-02T15:57:51.165Z"
+                },
+                {
+                    "action": "add",
+                    "points": 5,
+                    "previousPoints": 0,
+                    "newPoints": 5,
+                    "reason": "Registro de evento",
+                    "eventType": "GSP",
+                    "registeredBy": "1424168602562592890",
+                    "adminId": null,
+                    "createdAt": "2026-08-02T20:36:15.828Z"
+                },
+                {
+                    "action": "add",
+                    "points": 5,
+                    "previousPoints": 5,
+                    "newPoints": 10,
+                    "reason": "Registro de evento",
+                    "eventType": "Otro",
+                    "registeredBy": "1356411414989770935",
+                    "adminId": null,
+                    "createdAt": "2026-08-02T23:33:55.659Z"
+                }
+            ],
+            "createdAt": "2026-08-02T14:20:58.332Z",
+            "updatedAt": "2026-08-02T23:33:55.659Z"
+        },
+        "869374186332762192": {
+            "points": 3,
+            "shifts": 2,
+            "history": [
+                {
+                    "action": "add",
+                    "points": 3,
+                    "previousPoints": 0,
+                    "newPoints": 3,
+                    "reason": "Registro de evento",
+                    "eventType": "T3",
+                    "registeredBy": "1028491975181213738",
+                    "adminId": null,
+                    "createdAt": "2026-08-02T15:30:45.675Z"
+                },
+                {
+                    "action": "remove",
+                    "points": 3,
+                    "previousPoints": 3,
+                    "newPoints": 0,
+                    "reason": "Sin motivo",
+                    "eventType": null,
+                    "registeredBy": null,
+                    "adminId": "1028491975181213738",
+                    "createdAt": "2026-08-02T15:31:12.148Z"
+                },
+                {
+                    "action": "add",
+                    "points": 3,
+                    "previousPoints": 0,
+                    "newPoints": 3,
+                    "reason": "Registro de evento",
+                    "eventType": "Gamenight",
+                    "registeredBy": "1028491975181213738",
+                    "adminId": null,
+                    "createdAt": "2026-08-02T15:36:01.474Z"
+                }
+            ],
+            "createdAt": "2026-08-02T15:30:45.676Z",
+            "updatedAt": "2026-08-02T15:36:01.474Z"
+        },
+        "1356411414989770935": {
+            "points": 13,
+            "shifts": 3,
+            "history": [
+                {
+                    "action": "add",
+                    "points": 5,
+                    "previousPoints": 0,
+                    "newPoints": 5,
+                    "reason": "Registro de evento",
+                    "eventType": "T3",
+                    "registeredBy": "1028491975181213738",
+                    "adminId": null,
+                    "createdAt": "2026-08-02T15:34:25.456Z"
+                },
+                {
+                    "action": "add",
+                    "points": 3,
+                    "previousPoints": 5,
+                    "newPoints": 8,
+                    "reason": "Registro de evento",
+                    "eventType": "Gamenight",
+                    "registeredBy": "1028491975181213738",
+                    "adminId": null,
+                    "createdAt": "2026-08-02T15:36:01.474Z"
+                },
+                {
+                    "action": "add",
+                    "points": 5,
+                    "previousPoints": 8,
+                    "newPoints": 13,
+                    "reason": "Registro de evento",
+                    "eventType": "Otro",
+                    "registeredBy": "1356411414989770935",
+                    "adminId": null,
+                    "createdAt": "2026-08-02T23:33:55.659Z"
+                }
+            ],
+            "createdAt": "2026-08-02T15:34:25.456Z",
+            "updatedAt": "2026-08-02T23:33:55.659Z"
+        },
+        "1228439665925951704": {
+            "points": 5,
+            "shifts": 1,
+            "history": [
+                {
+                    "action": "add",
+                    "points": 5,
+                    "previousPoints": 0,
+                    "newPoints": 5,
+                    "reason": "Registro de evento",
+                    "eventType": "T3",
+                    "registeredBy": "1028491975181213738",
+                    "adminId": null,
+                    "createdAt": "2026-08-02T15:34:25.456Z"
+                }
+            ],
+            "createdAt": "2026-08-02T15:34:25.456Z",
+            "updatedAt": "2026-08-02T15:34:25.456Z"
+        },
+        "1361151058096689334": {
+            "points": 10,
+            "shifts": 2,
+            "history": [
+                {
+                    "action": "add",
+                    "points": 5,
+                    "previousPoints": 0,
+                    "newPoints": 5,
+                    "reason": "Registro de evento",
+                    "eventType": "T3",
+                    "registeredBy": "1028491975181213738",
+                    "adminId": null,
+                    "createdAt": "2026-08-02T15:34:25.456Z"
+                },
+                {
+                    "action": "add",
+                    "points": 5,
+                    "previousPoints": 5,
+                    "newPoints": 10,
+                    "reason": "Registro de evento",
+                    "eventType": "GSP",
+                    "registeredBy": "1424168602562592890",
+                    "adminId": null,
+                    "createdAt": "2026-08-02T20:36:15.828Z"
+                }
+            ],
+            "createdAt": "2026-08-02T15:34:25.456Z",
+            "updatedAt": "2026-08-02T20:36:15.828Z"
+        },
+        "1237102111070752800": {
+            "points": 13,
+            "shifts": 3,
+            "history": [
+                {
+                    "action": "add",
+                    "points": 5,
+                    "previousPoints": 0,
+                    "newPoints": 5,
+                    "reason": "Registro de evento",
+                    "eventType": "T3",
+                    "registeredBy": "1028491975181213738",
+                    "adminId": null,
+                    "createdAt": "2026-08-02T15:34:25.456Z"
+                },
+                {
+                    "action": "add",
+                    "points": 3,
+                    "previousPoints": 5,
+                    "newPoints": 8,
+                    "reason": "Registro de evento",
+                    "eventType": "Gamenight",
+                    "registeredBy": "1028491975181213738",
+                    "adminId": null,
+                    "createdAt": "2026-08-02T15:36:01.474Z"
+                },
+                {
+                    "action": "add",
+                    "points": 5,
+                    "previousPoints": 8,
+                    "newPoints": 13,
+                    "reason": "Registro de evento",
+                    "eventType": "Otro",
+                    "registeredBy": "1356411414989770935",
+                    "adminId": null,
+                    "createdAt": "2026-08-02T23:33:55.659Z"
+                }
+            ],
+            "createdAt": "2026-08-02T15:34:25.456Z",
+            "updatedAt": "2026-08-02T23:33:55.659Z"
+        },
+        "790969109584019458": {
+            "points": 15,
+            "shifts": 3,
+            "history": [
+                {
+                    "action": "add",
+                    "points": 5,
+                    "previousPoints": 0,
+                    "newPoints": 5,
+                    "reason": "Registro de evento",
+                    "eventType": "T3",
+                    "registeredBy": "1028491975181213738",
+                    "adminId": null,
+                    "createdAt": "2026-08-02T15:34:25.456Z"
+                },
+                {
+                    "action": "add",
+                    "points": 5,
+                    "previousPoints": 5,
+                    "newPoints": 10,
+                    "reason": "Registro de evento",
+                    "eventType": "GSP",
+                    "registeredBy": "1424168602562592890",
+                    "adminId": null,
+                    "createdAt": "2026-08-02T20:36:15.828Z"
+                },
+                {
+                    "action": "add",
+                    "points": 5,
+                    "previousPoints": 10,
+                    "newPoints": 15,
+                    "reason": "Registro de evento",
+                    "eventType": "Otro",
+                    "registeredBy": "1356411414989770935",
+                    "adminId": null,
+                    "createdAt": "2026-08-02T23:33:55.659Z"
+                }
+            ],
+            "createdAt": "2026-08-02T15:34:25.456Z",
+            "updatedAt": "2026-08-02T23:33:55.659Z"
+        },
+        "1039175578395361280": {
+            "points": 10,
+            "shifts": 2,
+            "history": [
+                {
+                    "action": "add",
+                    "points": 5,
+                    "previousPoints": 0,
+                    "newPoints": 5,
+                    "reason": "Registro de evento",
+                    "eventType": "T3",
+                    "registeredBy": "1028491975181213738",
+                    "adminId": null,
+                    "createdAt": "2026-08-02T15:34:25.456Z"
+                },
+                {
+                    "action": "add",
+                    "points": 5,
+                    "previousPoints": 5,
+                    "newPoints": 10,
+                    "reason": "Registro de evento",
+                    "eventType": "GSP",
+                    "registeredBy": "1424168602562592890",
+                    "adminId": null,
+                    "createdAt": "2026-08-02T20:36:15.828Z"
+                }
+            ],
+            "createdAt": "2026-08-02T15:34:25.456Z",
+            "updatedAt": "2026-08-02T20:36:15.828Z"
+        },
+        "1510830569422983218": {
+            "points": 10,
+            "shifts": 2,
+            "history": [
+                {
+                    "action": "add",
+                    "points": 5,
+                    "previousPoints": 0,
+                    "newPoints": 5,
+                    "reason": "Registro de evento",
+                    "eventType": "T3",
+                    "registeredBy": "1028491975181213738",
+                    "adminId": null,
+                    "createdAt": "2026-08-02T15:34:25.456Z"
+                },
+                {
+                    "action": "add",
+                    "points": 5,
+                    "previousPoints": 5,
+                    "newPoints": 10,
+                    "reason": "Registro de evento",
+                    "eventType": "Otro",
+                    "registeredBy": "1356411414989770935",
+                    "adminId": null,
+                    "createdAt": "2026-08-02T23:33:55.659Z"
+                }
+            ],
+            "createdAt": "2026-08-02T15:34:25.456Z",
+            "updatedAt": "2026-08-02T23:33:55.659Z"
+        },
+        "1533269876695633941": {
+            "points": 0,
+            "shifts": 2,
+            "history": [
+                {
+                    "action": "add",
+                    "points": 3,
+                    "previousPoints": 0,
+                    "newPoints": 3,
+                    "reason": "Registro de evento",
+                    "eventType": "T3",
+                    "registeredBy": "1028491975181213738",
+                    "adminId": null,
+                    "createdAt": "2026-08-02T15:52:51.959Z"
+                },
+                {
+                    "action": "add",
+                    "points": 3,
+                    "previousPoints": 3,
+                    "newPoints": 6,
+                    "reason": "Registro de evento",
+                    "eventType": "T3",
+                    "registeredBy": "1028491975181213738",
+                    "adminId": null,
+                    "createdAt": "2026-08-02T15:57:07.915Z"
+                },
+                {
+                    "action": "set",
+                    "points": 0,
+                    "previousPoints": 6,
+                    "newPoints": 0,
+                    "reason": "Sin motivo",
+                    "eventType": null,
+                    "registeredBy": null,
+                    "adminId": "1028491975181213738",
+                    "createdAt": "2026-08-02T15:57:58.300Z"
+                }
+            ],
+            "createdAt": "2026-08-02T15:52:51.961Z",
+            "updatedAt": "2026-08-02T15:57:58.300Z"
+        },
+        "792842038332358656": {
+            "points": 0,
+            "shifts": 2,
+            "history": [
+                {
+                    "action": "add",
+                    "points": 3,
+                    "previousPoints": 0,
+                    "newPoints": 3,
+                    "reason": "Registro de evento",
+                    "eventType": "T3",
+                    "registeredBy": "1028491975181213738",
+                    "adminId": null,
+                    "createdAt": "2026-08-02T15:52:51.959Z"
+                },
+                {
+                    "action": "add",
+                    "points": 3,
+                    "previousPoints": 3,
+                    "newPoints": 6,
+                    "reason": "Registro de evento",
+                    "eventType": "T3",
+                    "registeredBy": "1028491975181213738",
+                    "adminId": null,
+                    "createdAt": "2026-08-02T15:57:07.915Z"
+                },
+                {
+                    "action": "set",
+                    "points": 0,
+                    "previousPoints": 6,
+                    "newPoints": 0,
+                    "reason": "Sin motivo",
+                    "eventType": null,
+                    "registeredBy": null,
+                    "adminId": "1028491975181213738",
+                    "createdAt": "2026-08-02T15:58:08.920Z"
+                }
+            ],
+            "createdAt": "2026-08-02T15:52:51.961Z",
+            "updatedAt": "2026-08-02T15:58:08.920Z"
+        },
+        "1424168602562592890": {
+            "points": 5,
+            "shifts": 1,
+            "history": [
+                {
+                    "action": "add",
+                    "points": 5,
+                    "previousPoints": 0,
+                    "newPoints": 5,
+                    "reason": "Registro de evento",
+                    "eventType": "GSP",
+                    "registeredBy": "1424168602562592890",
+                    "adminId": null,
+                    "createdAt": "2026-08-02T20:36:15.828Z"
+                }
+            ],
+            "createdAt": "2026-08-02T20:36:15.830Z",
+            "updatedAt": "2026-08-02T20:36:15.828Z"
+        },
+        "1087819273143058433": {
+            "points": 5,
+            "shifts": 1,
+            "history": [
+                {
+                    "action": "add",
+                    "points": 5,
+                    "previousPoints": 0,
+                    "newPoints": 5,
+                    "reason": "Registro de evento",
+                    "eventType": "GSP",
+                    "registeredBy": "1424168602562592890",
+                    "adminId": null,
+                    "createdAt": "2026-08-02T20:36:15.828Z"
+                }
+            ],
+            "createdAt": "2026-08-02T20:36:15.830Z",
+            "updatedAt": "2026-08-02T20:36:15.828Z"
+        },
+        "1189663270479601684": {
+            "points": 5,
+            "shifts": 1,
+            "history": [
+                {
+                    "action": "add",
+                    "points": 5,
+                    "previousPoints": 0,
+                    "newPoints": 5,
+                    "reason": "Registro de evento",
+                    "eventType": "Otro",
+                    "registeredBy": "1356411414989770935",
+                    "adminId": null,
+                    "createdAt": "2026-08-02T23:33:55.659Z"
+                }
+            ],
+            "createdAt": "2026-08-02T23:33:55.661Z",
+            "updatedAt": "2026-08-02T23:33:55.659Z"
+        }
+    }
+}
