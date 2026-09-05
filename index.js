@@ -23,7 +23,7 @@ for (const file of commandFiles) {
     const command = require(path.join(commandsPath, file));
 
     if (!command.data || !command.execute) {
-        console.warn(`Comando ignorado por export invalido: ${file}`);
+        console.warn(`Comando ignorado por export inválido: ${file}`);
         continue;
     }
 
@@ -39,7 +39,7 @@ for (const file of eventFiles) {
     const event = require(path.join(eventsPath, file));
 
     if (!event.name || !event.execute) {
-        console.warn(`Evento ignorado por export invalido: ${file}`);
+        console.warn(`Evento ignorado por export inválido: ${file}`);
         continue;
     }
 
@@ -51,7 +51,8 @@ for (const file of eventFiles) {
 }
 
 // MONITOREO AUTOMÁTICO DE ROBLOX
-client.once("clientReady", () => {
+client.once("ready", () => {
+    console.log(`¡Bot conectado como ${client.user.tag}!`);
     verificarEstadoRoblox(client);
     setInterval(() => verificarEstadoRoblox(client), 180000); // 3 minutos
 });
