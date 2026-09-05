@@ -3,12 +3,33 @@ const { EmbedBuilder } = require('discord.js');
 const CANAL_ALERTAS_ID = '1532631042630881290';
 const ROL_NOTIFICACIONES_ID = '1545857316136685568';
 
-// Reemplaza esta URL con el endpoint de la API que deseas consultar
-const API_URL = 'https://api.status.io/v2/status/TU_ID_DE_ESTADO';
+const API_URL = 'https://roblox.statuspage.io/api/v2/summary.json';
 
-let ultimoEstadoRegistrado = null;
+let ultimoEstado = 'none';
 
-async function verificarEstadoAPI(client) {
+function obtenerIconoYColor(statusIndicator) {
+    switch (statusIndicator) {
+        case 'minor':
+            return { emoji: '🟡', color: 0xFEE75C };
+        case 'major':
+            return { emoji: '🟠', color: 0xE67E22 };
+        case 'critical':
+            return { emoji: '🔴', color: 0xED4245 };
+        default:
+            return { emoji: '🟢', color: 0x57F287 };
+    }
+}
+
+function obtenerIconoComponente(componentStatus) {
+    if (componentStatus === 'degraded_performance' || componentStatus === 'partial_outage') {
+        return '⚠️';
+    } else if (componentStatus === 'major_outage') {
+        return '❌';
+    }
+    return '✅';
+}
+
+async function verificarEstadoRoblox(client) {
     try {
         const respuesta = await fetch(API_URL, {
             headers: {
@@ -17,36 +38,50 @@ async function verificarEstadoAPI(client) {
         });
 
         if (!respuesta.ok) {
-            console.warn(`[API Status] Error en la respuesta. Código: ${respuesta.status}`);
+            console.warn(`[Roblox API] Respuesta no válida. Código de estado: ${respuesta.status}`);
             return;
         }
 
         const data = await respuesta.json();
+        const estadoActual = data.status.indicator;
+        const descripcion = data.status.description;
 
-        // Ajusta estas propiedades según la estructura JSON específica de la API que uses
-        const estadoActual = data.result?.status_overall?.status_code || 'normal';
+        if (estadoActual !== 'none' && estadoActual !== ultimoEstado) {
+            const { emoji, color } = obtenerIconoYColor(estadoActual);
 
-        if (ultimoEstadoRegistrado !== null && estadoActual !== ultimoEstadoRegistrado) {
+            const componentesAfectados = data.components
+                .filter(comp => comp.status !== 'operational')
+                .map(comp => `${obtenerIconoComponente(comp.status)} **${comp.name}**: ${comp.status}`)
+                .join('\n');
+
             const embed = new EmbedBuilder()
-                .setTitle('⚠️ Cambio de Estado Detectado')
-                .setDescription(`El estado actual del sistema ha cambiado a: **${estadoActual}**`)
-                .setColor(0xE67E22)
+                .setTitle(`${emoji} Incidencia Detectada en Roblox`)
+                .setDescription(`**Estado:** ${descripcion}\n\n**Servicios afectados:**\n${componentesAfectados || 'Sin detalle específico'}`)
+                .setColor(color)
+                .setFooter({ text: 'Monitoreo Automático | status.roblox.com' })
                 .setTimestamp();
 
             const canal = await client.channels.fetch(CANAL_ALERTAS_ID);
             if (canal) {
-                let mencion = '';
-                if (ROL_NOTIFICACIONES_ID === '@everyone') mencion = '@everyone';
-                else if (ROL_NOTIFICACIONES_ID) mencion = `<@&${ROL_NOTIFICACIONES_ID}>`;
+                let contenidoMensaje = '';
+                if (ROL_NOTIFICACIONES_ID === '@everyone') contenidoMensaje = '@everyone';
+                else if (ROL_NOTIFICACIONES_ID) contenidoMensaje = `<@&${ROL_NOTIFICACIONES_ID}>`;
 
-                await canal.send({ content: mencion || null, embeds: [embed] });
+                await canal.send({ content: contenidoMensaje || null, embeds: [embed] });
             }
+
+            ultimoEstado = estadoActual;
+
+        } else if (estadoActual === 'none' && ultimoEstado !== 'none') {
+            const canal = await client.channels.fetch(CANAL_ALERTAS_ID);
+            if (canal) {
+                await canal.send(`🟢 **Roblox se ha recuperado.** Todos los servicios operan con normalidad.`);
+            }
+            ultimoEstado = 'none';
         }
 
-        ultimoEstadoRegistrado = estadoActual;
-
     } catch (error) {
-        console.error('Error al conectar con la API:', error.message);
+        console.error('Error al verificar el estado de Roblox:', error.message);
     }
 }
 
@@ -61,27 +96,34 @@ async function manejarComandoStatus(interaction) {
         });
 
         if (!respuesta.ok) {
-            return await interaction.editReply('❌ No se pudo conectar con el servidor de la API.');
+            return await interaction.editReply(`❌ No se pudo obtener respuesta de los servidores de Roblox (Código ${respuesta.status}).`);
         }
 
         const data = await respuesta.json();
-        const estadoActual = data.result?.status_overall?.status_name || 'Operacional';
+        const estadoActual = data.status.indicator;
+        const descripcion = data.status.description;
+        const { emoji, color } = obtenerIconoYColor(estadoActual);
 
-        const embed = new EmbedBuilder()
-            .setTitle('📊 Estado Actual')
-            .setDescription(`El servicio se encuentra actualmente: **${estadoActual}**`)
-            .setColor(0x57F287)
+        const detallesServicios = data.components
+            .map(comp => `${obtenerIconoComponente(comp.status)} **${comp.name}**: ${comp.status}`)
+            .join('\n');
+
+        const embedStatus = new EmbedBuilder()
+            .setTitle(`${emoji} Estado Actual de Roblox`)
+            .setDescription(`**Estado general:** ${descripcion}\n\n**Detalle por servicio:**\n${detallesServicios}`)
+            .setColor(color)
+            .setFooter({ text: 'Fuente: status.roblox.com' })
             .setTimestamp();
 
-        await interaction.editReply({ embeds: [embed] });
+        await interaction.editReply({ embeds: [embedStatus] });
 
     } catch (error) {
-        console.error('Error en el comando status:', error.message);
-        await interaction.editReply('❌ Ocurrió un error inesperado al procesar la solicitud.');
+        console.error('Error en /status:', error.message);
+        await interaction.editReply('❌ Ocurrió un error al intentar consultar el estado de Roblox.');
     }
 }
 
 module.exports = {
-    verificarEstadoAPI,
+    verificarEstadoRoblox,
     manejarComandoStatus
 };
