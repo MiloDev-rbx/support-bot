@@ -9,17 +9,10 @@ const EMOJIS = {
     CRITICAL: '<:MajorOutage:1545848872012615820>'
 };
 
-// Opciones de cabeceras para simular un navegador real y evitar bloqueos (401/404)
-const FETCH_OPTIONS = {
-    method: 'GET',
-    headers: {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0',
-        'Accept': 'application/json, text/plain, */*',
-        'Accept-Language': 'en-US,en;q=0.5',
-        'Cache-Control': 'no-cache',
-        'Pragma': 'no-cache'
-    }
-};
+// URL objetivo de Statuspage
+const API_ROBLOX = 'https://roblox.statuspage.io/api/v2/summary.json';
+// Usamos el proxy AllOrigins para saltear el bloqueo de IP/Cloudflare (401)
+const PROXY_URL = `https://api.allorigins.win/raw?url=${encodeURIComponent(API_ROBLOX)}`;
 
 let ultimoEstado = 'none';
 
@@ -47,7 +40,7 @@ function obtenerIconoComponente(componentStatus) {
 
 async function verificarEstadoRoblox(client) {
     try {
-        const respuesta = await fetch('https://roblox.statuspage.io/api/v2/summary.json', FETCH_OPTIONS);
+        const respuesta = await fetch(PROXY_URL);
 
         if (!respuesta.ok) {
             console.warn(`[Roblox API] Respuesta no válida. Código de estado: ${respuesta.status}`);
@@ -101,7 +94,7 @@ async function manejarComandoStatus(interaction) {
     await interaction.deferReply();
 
     try {
-        const respuesta = await fetch('https://roblox.statuspage.io/api/v2/summary.json', FETCH_OPTIONS);
+        const respuesta = await fetch(PROXY_URL);
 
         if (!respuesta.ok) {
             return await interaction.editReply(`❌ No se pudo obtener respuesta de los servidores de Roblox (Código ${respuesta.status}).`);
