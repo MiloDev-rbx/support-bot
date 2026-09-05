@@ -9,10 +9,8 @@ const EMOJIS = {
     CRITICAL: '<:MajorOutage:1545848872012615820>'
 };
 
-// URL objetivo de Statuspage
-const API_ROBLOX = 'https://roblox.statuspage.io/api/v2/summary.json';
-// Usamos el proxy AllOrigins para saltear el bloqueo de IP/Cloudflare (401)
-const PROXY_URL = `https://api.allorigins.win/raw?url=${encodeURIComponent(API_ROBLOX)}`;
+// URL de la API mediante corsproxy.io para evadir bloqueos 401/503
+const API_URL = 'https://corsproxy.io/?' + encodeURIComponent('https://roblox.statuspage.io/api/v2/summary.json');
 
 let ultimoEstado = 'none';
 
@@ -38,9 +36,26 @@ function obtenerIconoComponente(componentStatus) {
     return EMOJIS.OPERATIONAL;
 }
 
+async function realizarPeticionAPI() {
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 10000); // Timeout de 10 segundos
+
+    try {
+        const respuesta = await fetch(API_URL, {
+            signal: controller.signal,
+            headers: {
+                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
+            }
+        });
+        return respuesta;
+    } finally {
+        clearTimeout(timeout);
+    }
+}
+
 async function verificarEstadoRoblox(client) {
     try {
-        const respuesta = await fetch(PROXY_URL);
+        const respuesta = await realizarPeticionAPI();
 
         if (!respuesta.ok) {
             console.warn(`[Roblox API] Respuesta no válida. Código de estado: ${respuesta.status}`);
@@ -86,7 +101,7 @@ async function verificarEstadoRoblox(client) {
         }
 
     } catch (error) {
-        console.error('Error al verificar el estado de Roblox:', error);
+        console.error('Error al verificar el estado de Roblox:', error.message);
     }
 }
 
@@ -94,7 +109,7 @@ async function manejarComandoStatus(interaction) {
     await interaction.deferReply();
 
     try {
-        const respuesta = await fetch(PROXY_URL);
+        const respuesta = await realizarPeticionAPI();
 
         if (!respuesta.ok) {
             return await interaction.editReply(`❌ No se pudo obtener respuesta de los servidores de Roblox (Código ${respuesta.status}).`);
@@ -119,7 +134,7 @@ async function manejarComandoStatus(interaction) {
         await interaction.editReply({ embeds: [embedStatus] });
 
     } catch (error) {
-        console.error('Error en /status:', error);
+        console.error('Error en /status:', error.message);
         await interaction.editReply('❌ Ocurrió un error al intentar consultar el estado de Roblox.');
     }
 }
