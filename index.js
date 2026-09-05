@@ -1,4 +1,4 @@
-const { verificarEstadoRoblox } = require('./robloxStatus.js');
+const { verificarEstadoRoblox } = require('./utils/robloxStatus.js');
 require("dotenv").config();
 
 const fs = require("fs");

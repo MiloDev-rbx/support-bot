@@ -1,5 +1,5 @@
 const { SlashCommandBuilder } = require('discord.js');
-const { manejarComandoStatus } = require('../data/robloxStatus.js'); // Ajusta la ruta si tu carpeta es diferente
+const { manejarComandoStatus } = require('../utils/robloxStatus.js'); // Ajusta la ruta si tu carpeta es diferente
 
 module.exports = {
     data: new SlashCommandBuilder()
