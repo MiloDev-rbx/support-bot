@@ -6,7 +6,7 @@ const {
 
 // 👑 Usuarios autorizados para utilizar /broadcast
 const AUTHORIZED_USERS = [
-    'TU_USER_ID'
+    '1028491975181213738'
 ];
 
 module.exports = {

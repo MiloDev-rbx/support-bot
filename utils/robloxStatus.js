@@ -1,8 +1,8 @@
 const { EmbedBuilder } = require('discord.js');
 
 // Configuración
-const CANAL_ALERTAS_ID = 'TU_ID_DE_CANAL_AQUI';
-const ROL_NOTIFICACIONES_ID = 'TU_ID_DE_ROL_AQUI'; // O '@everyone' o '' si no quieres ping
+const CANAL_ALERTAS_ID = '1532631042630881290';
+const ROL_NOTIFICACIONES_ID = '1545857316136685568'; // O '@everyone' o '' si no quieres ping
 
 const EMOJIS = {
     OPERATIONAL: '<:Operational:1545848750025482240>',
