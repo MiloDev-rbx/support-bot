@@ -35,7 +35,7 @@ function obtenerIconoComponente(componentStatus) {
 
 async function verificarEstadoRoblox(client) {
     try {
-        const respuesta = await fetch('https://status.roblox.com/api/v2/summary.json', {
+        const respuesta = await fetch('https://roblox.statuspage.io/api/v2/summary.json', {
             headers: {
                 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) DiscordBot'
             }
@@ -93,7 +93,7 @@ async function manejarComandoStatus(interaction) {
     await interaction.deferReply();
 
     try {
-        const respuesta = await fetch('https://status.roblox.com/api/v2/summary.json', {
+        const respuesta = await fetch('https://roblox.statuspage.io/api/v2/summary.json', {
             headers: {
                 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) DiscordBot'
             }
